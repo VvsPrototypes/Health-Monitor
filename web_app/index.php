@@ -57,6 +57,7 @@
   },
     "series":[  // Insert your series data here.
         { "values": [0]},
+<<<<<<< HEAD
         { "values":[<?php $myfile = fopen("ECG.txt", "r"); echo fread($myfile,filesize("ECG.txt")); fclose($myfile); ?>]}
     ]
   };
@@ -100,6 +101,9 @@
     "series":[  // Insert your series data here.
         { "values": [0]},
         { "values":[<?php $myfile = fopen("BREATH.txt", "r"); echo fread($myfile,filesize("BREATH.txt")); fclose($myfile); ?>]}
+=======
+        { "values":[<?php $file = fopen("ECG.txt","r"); echo fgets($file); fclose($file); ?>]}
+>>>>>>> origin/master
     ]
   };
   zingchart.render({ // Render Method[3]
