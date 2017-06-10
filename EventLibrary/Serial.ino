@@ -27,7 +27,7 @@ void getecg()
 }
 
 void getbreathe()
-{ for (int i = 0; i < 300; i++)
+{ for (int i = 0; i < 500; i++)
   {
     breathe[i] = analogRead(A8);
     delay(50);
@@ -36,16 +36,19 @@ void getbreathe()
 
 void printall()
 {
-
-  Serial.println(temp);
+ Serial1.println("T");
+  Serial1.println(temp);
 delay(1000);
+Serial1.println("E")
   for (int i = 0; i < 500; i++)
     {
-      Serial.println(ecgv[i]);
+      Serial1.println(ecgv[i]);
 }
 delay(1000);
+Serial.println("P");
 Serial.println(pox.getHeartRate());
 delay(1000);
+Serial.println("B");
 for (int i = 0; i < 300; i++)
   {
     Serial.println(breathe[i]);
@@ -53,7 +56,6 @@ for (int i = 0; i < 300; i++)
   }
 
 }
-
 
 void serialSetup()
 {
@@ -70,18 +72,16 @@ void serialSetup()
 void serialLoop()
 {
   transmit.waitFor();
-  Serial.println("Something Wrong!");
   uint32_t readings;
   readings = opt3001.readResult();  
   int opt = (readings, DEC);
   if(opt<100)
   {
-    Serial.println("Turn On Light");//tell edison to turn ON Light
+    Serial.println("O");//tell edison to turn ON Light
   }
   getecg();
   float temp = tempSensor.getTemperature();
   getbreathe();
-
   printall();
 }
 

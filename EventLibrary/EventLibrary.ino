@@ -11,9 +11,9 @@ PulseOximeter pox;
 MPU6050 mpu;
 MAX30205 tempSensor;
 
-float pulse;
-float temp; 
-float t;
+int pulse;
+int temp; 
+int t;
 int i=0;
 
 void setup()
